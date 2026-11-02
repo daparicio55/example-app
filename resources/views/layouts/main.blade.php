@@ -19,8 +19,13 @@
             </div><!-- fin del menú del sidebar -->
         </div><!-- fin del sidebar -->
         <div class="flex-1 bg-slate-100"><!-- contenido principal -->
-            <div class="bg-slate-200 p-4"><!-- encabezado del contenido principal -->
-                Sistema de Gestion de Biblioteca | <span class="font-bold text-lg">@yield('subtitulo')</span>
+            <div class="bg-slate-200 p-4 flex justify-between items-center px-4"><!-- encabezado del contenido principal -->
+                <div>
+                    Sistema de Gestion de Biblioteca | <span class="font-bold text-lg">@yield('subtitulo')</span>
+                </div>
+                <div><!-- boton de crear -->
+                    @yield('boton-crear')
+                </div><!-- fin del boton de crear -->
             </div><!-- fin del encabezado del contenido principal -->
             <div class="p-5"><!-- contenido del contenido principal -->
                 @yield('contenido')
