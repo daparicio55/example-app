@@ -31,4 +31,32 @@ class LibroController extends Controller
             return redirect()->route('libros')->with('error','Error al crear el libro:');
         }
     }
+
+    public function edit($id)
+    {
+        $libro = Libro::find($id);
+        return view('libros.edit',compact('libro'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        try{
+            $libro = Libro::find($id);
+            $libro->titulo = $request->titulo;
+            $libro->precio = $request->precio;
+            $libro->codigo_sbn = $request->codigo_sbn;
+            $libro->fecha_publicacion = $request->fecha_publicacion;
+            $libro->save();
+            return redirect()->route('libros')->with('correcto','Libro actualizado correctamente');
+        }catch(\Exception $e){
+            return redirect()->route('libros')->with('error','Error al actualizar el libro:');
+        }  
+    }
+
+    public function destroy($id)
+    {
+        $libro = Libro::find($id);
+        $libro->delete();
+        return redirect()->route('libros')->with('correcto','Libro eliminado correctamente');
+    }
 }
