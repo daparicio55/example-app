@@ -24,6 +24,15 @@
             <label>Fecha Publicación</label>
             <input type="date" name="fecha_publicacion" class="border border-gray-300 rounded px-2 py-1"/>
         </div>
+        <div class="flex flex-col col-span-2">
+            <label>Categoria</label>
+            <select name="categoria_id" class="border border-gray-300 rounded px-2 py-1">
+                <option value="">Seleccione una categoria</option>
+                @foreach($categorias as $categoria)
+                    <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                @endforeach
+            </select>
+        </div>
         <div>
             <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-500">
                 Guardar

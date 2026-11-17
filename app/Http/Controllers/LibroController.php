@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Libro;
+use App\Models\Categoria;
 
 class LibroController extends Controller
 {
@@ -14,7 +15,8 @@ class LibroController extends Controller
     }
     public function create()
     {
-        return view('libros.create');
+        $categorias = Categoria::get();
+        return view('libros.create',compact('categorias'));
     }
 
     public function store(Request $request)
@@ -25,6 +27,7 @@ class LibroController extends Controller
             $libro->precio = $request->precio;
             $libro->codigo_sbn = $request->codigo_sbn;
             $libro->fecha_publicacion = $request->fecha_publicacion;
+            $libro->categoria_id = $request->categoria_id;
             $libro->save();
             return redirect()->route('libros')->with('correcto','Libro creado correctamente');
         }catch(\Exception $e){

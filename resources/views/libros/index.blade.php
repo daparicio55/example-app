@@ -18,10 +18,11 @@
 <div class="w-full overflow-auto">
     <table class="min-w-full shadow-2xs bg-white rounded overflow-hidden">
         <thead class="bg-gray-200 border border-gray-300">
-            <th class="py-2 text-left px-2  ">Título</th>
+            <th class="py-2 text-left px-2 ">Título</th>
             <th class="py-2 text-left px-2">Precio</th>
             <th class="py-2 text-left px-2">Código SBN</th>
             <th class="py-2 text-left px-2">Fecha Publicación</th>
+            <th class="py-2 text-left px-2">Categoría</th>
             <th>Acciones</th>
         </thead>
         <tbody>
@@ -31,6 +32,7 @@
                 <td class="px-2 border-b border-gray-300 border-r">{{ $libro->precio }}</td>
                 <td class="px-2 border-b border-gray-300 border-r">{{ $libro->codigo_sbn }}</td>
                 <td class="px-2 border-b border-gray-300 border-r">{{ $libro->fecha_publicacion }}</td>
+                <td class="px-2 border-b border-gray-300 border-r">{{ $libro->categoria->nombre }}</td>
                 <td class="px-2 py-2 flex space-x-1">
                     <a href="{{ route('libros.edit',$libro->id) }}" class="px-4 py-1 bg-green-600 text-white rounded">
                         Editar
