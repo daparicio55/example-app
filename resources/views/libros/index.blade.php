@@ -23,6 +23,7 @@
             <th class="py-2 text-left px-2">Código SBN</th>
             <th class="py-2 text-left px-2">Fecha Publicación</th>
             <th class="py-2 text-left px-2">Categoría</th>
+            <th class="py-2 text-left px-2">Autor</th>
             <th>Acciones</th>
         </thead>
         <tbody class="divide-y divide-x divide-gray-200">
@@ -33,6 +34,7 @@
                 <td class="px-2">{{ $libro->codigo_sbn }}</td>
                 <td class="px-2">{{ $libro->fecha_publicacion }}</td>
                 <td class="px-2">{{ $libro->categoria->nombre }}</td>
+                <td class="px-2">{{ $libro->autore->nombre }}</td>
                 <td class="px-2 py-2 flex space-x-1 flex justify-center">
                     <a href="{{ route('libros.edit',$libro->id) }}" class="px-4 py-1 bg-green-600 text-white rounded">
                         <i class="fas fa-edit"></i>
