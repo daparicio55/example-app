@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('subtitulo','Nuevo Libro')
 @section('boton-crear')
-    <a href="{{ route('libros') }}" class="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-500">
+    <a href="{{ route('libros.index') }}" class="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-500">
         <i class="fa-solid fa-arrow-left"></i> Regresar
     </a>
 @endsection

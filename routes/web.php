@@ -11,7 +11,8 @@ Route::get('/', function () {
 
 Route::get('/clientes/create',[ClienteController::class,'create'])->name('clientes.create');
 
-Route::get('/clientes',[ClienteController::class,'index'])->name('clientes');
+Route::get('/clientes',[ClienteController::class,'index'])->name('clientes.index');
+
 
 Route::get('/libros/{id}/edit',[LibroController::class,'edit'])->name('libros.edit');
 
@@ -19,7 +20,7 @@ Route::put('/libros/{id}',[LibroController::class,'update'])->name('libros.updat
 
 Route::get('/libros/create',[LibroController::class,'create'])->name('libros.create');
 
-Route::get('/libros',[LibroController::class,'index'])->name('libros');
+Route::get('/libros',[LibroController::class,'index'])->name('libros.index');
 
 Route::post('/libros',[LibroController::class,'store'])->name('libros.store');
 
@@ -32,8 +33,9 @@ Route::put('/categorias/{id}',[CategoriaController::class,'update'])->name('cate
 
 Route::get('/categorias/create',[CategoriaController::class,'create'])->name('categorias.create');
 
-Route::get('/categorias',[CategoriaController::class,'index'])->name('categorias');
+Route::get('/categorias',[CategoriaController::class,'index'])->name('categorias.index');
 
 Route::post('/categorias',[CategoriaController::class,'store'])->name('categorias.store');
 
 Route::delete('/categorias/{id}',[CategoriaController::class,'destroy'])->name('categorias.destroy');
+
