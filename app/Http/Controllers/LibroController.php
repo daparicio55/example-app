@@ -40,9 +40,9 @@ class LibroController extends Controller
             $libro->categoria_id = $request->categoria_id;
             $libro->autore_id = $request->autore_id;
             $libro->save();
-            return redirect()->route('libros')->with('correcto','Libro creado correctamente');
+            return redirect()->route('libros.index')->with('correcto','Libro creado correctamente');
         }catch(\Exception $e){
-            return redirect()->route('libros')->with('error','Error al crear el libro:');
+            return redirect()->route('libros.index')->with('error','Error al crear el libro:');
         }
     }
 
@@ -61,9 +61,9 @@ class LibroController extends Controller
             $libro->codigo_sbn = $request->codigo_sbn;
             $libro->fecha_publicacion = $request->fecha_publicacion;
             $libro->save();
-            return redirect()->route('libros')->with('correcto','Libro actualizado correctamente');
+            return redirect()->route('libros.index')->with('correcto','Libro actualizado correctamente');
         }catch(\Exception $e){
-            return redirect()->route('libros')->with('error','Error al actualizar el libro:');
+            return redirect()->route('libros.index')->with('error','Error al actualizar el libro:');
         }  
     }
 
@@ -71,6 +71,6 @@ class LibroController extends Controller
     {
         $libro = Libro::find($id);
         $libro->delete();
-        return redirect()->route('libros')->with('correcto','Libro eliminado correctamente');
+        return redirect()->route('libros.index')->with('correcto','Libro eliminado correctamente');
     }
 }
