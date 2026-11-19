@@ -23,6 +23,14 @@ class LibroController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'titulo'=> 'required',
+            'precio' => 'required|numeric',
+            'codigo_sbn' => 'required|unique:libros,codigo_sbn',
+            'fecha_publicacion' => 'required|date',
+            'categoria_id' => 'required',
+            'autore_id' => 'required'
+        ]);
         try {
             $libro = new Libro();
             $libro->titulo = $request->titulo;

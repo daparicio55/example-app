@@ -10,19 +10,31 @@
         @csrf
         <div class="flex flex-col">
             <label>Titulo</label>
-            <input type="text" name="titulo" class="border border-gray-300 rounded px-2 py-1"/>
+            <input type="text" name="titulo" class="border border-gray-300 rounded px-2 py-1" value="{{ old('titulo') }}"/>
+            @error('titulo')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+            @enderror
         </div>
         <div class="flex flex-col">
             <label>Precio</label>
-            <input type="text" name="precio" class="border border-gray-300 rounded px-2 py-1"/>
+            <input type="text" name="precio" class="border border-gray-300 rounded px-2 py-1" value="{{ old('precio') }}"/>
+            @error('precio')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+            @enderror
         </div>
         <div class="flex flex-col">
             <label>Codigo SBN</label>
-            <input type="text" name="codigo_sbn" class="border border-gray-300 rounded px-2 py-1"/>
+            <input type="text" name="codigo_sbn" class="border border-gray-300 rounded px-2 py-1" value="{{ old('codigo_sbn') }}"/>
+            @error('codigo_sbn')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+            @enderror
         </div>
         <div class="flex flex-col">
             <label>Fecha Publicación</label>
-            <input type="date" name="fecha_publicacion" class="border border-gray-300 rounded px-2 py-1"/>
+            <input type="date" name="fecha_publicacion" class="border border-gray-300 rounded px-2 py-1" value="{{ old('fecha_publicacion') }}"/>
+            @error('fecha_publicacion')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+            @enderror
         </div>
         <div class="flex flex-col">
             <label>Categoria</label>
@@ -32,6 +44,9 @@
                     <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
                 @endforeach
             </select>
+            @error('categoria_id')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+            @enderror
         </div>
         <div class="flex flex-col">
             <label>Autor</label>
@@ -41,6 +56,9 @@
                     <option value="{{ $autore->id }}">{{ $autore->nombre }}</option>
                 @endforeach
             </select>
+            @error('autore_id')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+            @enderror
         </div>
         <div>
             <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-500">
