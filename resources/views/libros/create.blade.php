@@ -41,7 +41,7 @@
             <select name="categoria_id" class="border border-gray-300 rounded px-2 py-1">
                 <option value="">Seleccione una categoria</option>
                 @foreach($categorias as $categoria)
-                    <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                    <option value="{{ $categoria->id }}" @if(old('categoria_id') == $categoria->id) selected @endif>{{ $categoria->nombre }}</option>
                 @endforeach
             </select>
             @error('categoria_id')
@@ -53,7 +53,7 @@
             <select name="autore_id" class="border border-gray-300 rounded px-2 py-1">
                 <option value="">Seleccione un autor</option>
                 @foreach($autores as $autore)
-                    <option value="{{ $autore->id }}">{{ $autore->nombre }}</option>
+                    <option value="{{ $autore->id }}" @if(old('autore_id') == $autore->id) selected @endif>{{ $autore->nombre }}</option>
                 @endforeach
             </select>
             @error('autore_id')
