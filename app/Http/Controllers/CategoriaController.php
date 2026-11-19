@@ -21,9 +21,9 @@ class CategoriaController extends Controller
             $libro = new Categoria();
             $libro->nombre = $request->nombre;
             $libro->save();
-            return redirect()->route('categorias')->with('correcto','Categoria creada correctamente');
+            return redirect()->route('categorias.index')->with('correcto','Categoria creada correctamente');
         }catch(\Exception $e){
-            return redirect()->route('categorias')->with('error','Error al crear la categoria:');
+            return redirect()->route('categorias.index')->with('error','Error al crear la categoria:');
         }
     }
     public function edit($id)
@@ -37,9 +37,9 @@ class CategoriaController extends Controller
             $categoria = Categoria::find($id);
             $categoria->nombre = $request->nombre;
             $categoria->save();
-            return redirect()->route('categorias')->with('correcto','Categoria actualizada correctamente');
+            return redirect()->route('categorias.index')->with('correcto','Categoria actualizada correctamente');
         }catch(\Exception $e){
-            return redirect()->route('categorias')->with('error','Error al actualizar la categoria:');
+            return redirect()->route('categorias.index')->with('error','Error al actualizar la categoria:');
         }
     }
     public function destroy($id)
@@ -47,9 +47,9 @@ class CategoriaController extends Controller
         try {
             $categoria = Categoria::find($id);
             $categoria->delete();
-            return redirect()->route('categorias')->with('correcto','Categoria eliminada correctamente');
+            return redirect()->route('categorias.index')->with('correcto','Categoria eliminada correctamente');
         }catch(\Exception $e){
-            return redirect()->route('categorias')->with('error','Error al eliminar la categoria:');
+            return redirect()->route('categorias.index')->with('error','Error al eliminar la categoria:');
         }
     }
 }

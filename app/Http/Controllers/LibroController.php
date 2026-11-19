@@ -23,7 +23,7 @@ class LibroController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'titulo'=> 'required',
             'precio' => 'required|numeric',
             'codigo_sbn' => 'required|unique:libros,codigo_sbn',
@@ -32,14 +32,8 @@ class LibroController extends Controller
             'autore_id' => 'required'
         ]);
         try {
-            $libro = new Libro();
-            $libro->titulo = $request->titulo;
-            $libro->precio = $request->precio;
-            $libro->codigo_sbn = $request->codigo_sbn;
-            $libro->fecha_publicacion = $request->fecha_publicacion;
-            $libro->categoria_id = $request->categoria_id;
-            $libro->autore_id = $request->autore_id;
-            $libro->save();
+            Libro::create($data);
+            
             return redirect()->route('libros.index')->with('correcto','Libro creado correctamente');
         }catch(\Exception $e){
             return redirect()->route('libros.index')->with('error','Error al crear el libro:');
