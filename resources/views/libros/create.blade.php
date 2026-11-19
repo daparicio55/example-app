@@ -24,12 +24,21 @@
             <label>Fecha Publicación</label>
             <input type="date" name="fecha_publicacion" class="border border-gray-300 rounded px-2 py-1"/>
         </div>
-        <div class="flex flex-col col-span-2">
+        <div class="flex flex-col">
             <label>Categoria</label>
             <select name="categoria_id" class="border border-gray-300 rounded px-2 py-1">
                 <option value="">Seleccione una categoria</option>
                 @foreach($categorias as $categoria)
                     <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="flex flex-col">
+            <label>Autor</label>
+            <select name="autore_id" class="border border-gray-300 rounded px-2 py-1">
+                <option value="">Seleccione un autor</option>
+                @foreach($autores as $autore)
+                    <option value="{{ $autore->id }}">{{ $autore->nombre }}</option>
                 @endforeach
             </select>
         </div>

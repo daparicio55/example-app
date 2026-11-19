@@ -10,4 +10,9 @@ class Libro extends Model
     {
         return $this->belongsTo(Categoria::class);
     }
+
+    public function autore()
+    {
+        return $this->belongsTo(Autore::class);
+    }
 }

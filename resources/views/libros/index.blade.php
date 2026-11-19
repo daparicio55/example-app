@@ -16,7 +16,7 @@
 </div>
 @endif
 <div class="w-full overflow-auto">
-    <table class="min-w-full shadow-2xs bg-white rounded overflow-hidden">
+    <table class="min-w-full shadow-2xs divide-y divide-x divide-gray-200 bg-white rounded border border-gray-200">
         <thead class="bg-gray-200 border border-gray-300">
             <th class="py-2 text-left px-2 ">Título</th>
             <th class="py-2 text-left px-2">Precio</th>
@@ -25,21 +25,21 @@
             <th class="py-2 text-left px-2">Categoría</th>
             <th>Acciones</th>
         </thead>
-        <tbody>
+        <tbody class="divide-y divide-x divide-gray-200">
             @foreach ($libros as $libro)
             <tr>
-                <td class="px-2 border-b border-gray-300 border-l border-r">{{ $libro->titulo }}</td>
-                <td class="px-2 border-b border-gray-300 border-r">{{ $libro->precio }}</td>
-                <td class="px-2 border-b border-gray-300 border-r">{{ $libro->codigo_sbn }}</td>
-                <td class="px-2 border-b border-gray-300 border-r">{{ $libro->fecha_publicacion }}</td>
-                <td class="px-2 border-b border-gray-300 border-r">{{ $libro->categoria->nombre }}</td>
-                <td class="px-2 py-2 flex space-x-1">
+                <td class="px-2">{{ $libro->titulo }}</td>
+                <td class="px-2">{{ $libro->precio }}</td>
+                <td class="px-2">{{ $libro->codigo_sbn }}</td>
+                <td class="px-2">{{ $libro->fecha_publicacion }}</td>
+                <td class="px-2">{{ $libro->categoria->nombre }}</td>
+                <td class="px-2 py-2 flex space-x-1 flex justify-center">
                     <a href="{{ route('libros.edit',$libro->id) }}" class="px-4 py-1 bg-green-600 text-white rounded">
-                        Editar
+                        <i class="fas fa-edit"></i>
                     </a>
                     <button type="button" class="rounded px-4 py-1 bg-red-600 text-white" 
                         onclick="document.getElementById('modal-delete-{{ $libro->id }}').classList.remove('hidden')">
-                        Eliminar
+                        <i class="fas fa-trash"></i>
                     </button>
                     <div class="fixed inset-0 bg-black/30 z-50 flex items-center justify-center hidden" id="modal-delete-{{ $libro->id }}"> <!--CONFIRMAR ELIMINAR -->
                         <div class="bg-white p-5 rounded shadow-lg"><!-- Contenido del MOdal -->

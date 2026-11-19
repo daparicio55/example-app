@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Libro;
 use App\Models\Categoria;
+use App\Models\Autore;
 
 class LibroController extends Controller
 {
@@ -16,7 +17,8 @@ class LibroController extends Controller
     public function create()
     {
         $categorias = Categoria::get();
-        return view('libros.create',compact('categorias'));
+        $autores = Autore::get();
+        return view('libros.create',compact('categorias','autores'));
     }
 
     public function store(Request $request)
